@@ -2,15 +2,15 @@
   <ion-content>
     <div class="list card">
       <div class="item row">
-        <div class="col col-50">
+        <div class="col col-60">
           <h2>{{movie.Title}}</h2>
           <p>{{movie.Year}}</p>
         </div>
         <div class="col">
-          <button class="button button-icon icon red-icon ion-social-youtube"></button>
+          <button class="button button-icon icon red-icon ion-social-youtube" ng-click="lauchYoutube(movie.Title, movie.Year)"></button>
         </div>
         <div class="col">
-          <button class="button button-icon icon red-icon ion-play"></button>
+          <button class="button button-icon icon red-icon ion-play" ng-click="playMovie()"></button>
         </div>
       </div>
       <div class="item item-body">

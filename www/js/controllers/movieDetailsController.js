@@ -1,11 +1,11 @@
 var movieDetailsController = function($scope, sharedData, omdbapi) {
   var replaceRegex = new RegExp('%20', 'g');
   var yearRegex = new RegExp('[0-9]{4}');
-  var path = sharedData.getCurrentFilePath();
+  $scope.path = sharedData.getCurrentFilePath();
 
   var title = '';
   var year = '';
-  var splitPath = path.split('/');
+  var splitPath = $scope.path.split('/');
   var fileName = splitPath[splitPath.length - 1];
   var splitFileName = fileName.replace(replaceRegex, '.').split('.');
 
@@ -29,6 +29,21 @@ var movieDetailsController = function($scope, sharedData, omdbapi) {
             console.log("Error occured fetching movie data: " + reason);
           }
     );
+
+    $scope.lauchYoutube = function(title, year){
+      var url = 'http://www.youtube.com/results?search_query=trailer+';
+      var splitTitle = title.split(" ");
+      for(i = 0; i < splitTitle.length; i++){
+        url = url + splitTitle[i] + '+';
+      }
+      url = url + year;
+
+      window.open(url, '_system');
+    };
+
+    $scope.playMovie = function(){
+      window.open($scope.path, '_system');
+    }
 };
 
 app.controller('movieDetailsController', movieDetailsController);

@@ -28,6 +28,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/',
     templateUrl: 'html/browser.html',
     controller: 'fileController'
+  }).state('movieDetails', {
+    url: '/movieDetails',
+    templateUrl: 'html/movieDetails.html',
+    controller: 'movieDetailsController'
   });
 
   $urlRouterProvider.otherwise('/');

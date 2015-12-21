@@ -1,6 +1,6 @@
 var omdbapi = function($http){
 	var getMovieInfo = function(title, year){
-		return $http.get('http://www.omdbapi.com/?t=' + title + '&y=' + year + '&type=movie')
+		return $http.get('http://www.omdbapi.com/?t=' + title + '&y=' + year + '&type=movie&tomatoes=true')
 					.then(function(response){
 						return response.data;
 					});

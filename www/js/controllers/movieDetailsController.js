@@ -1,4 +1,10 @@
-var movieDetailsController = function($scope, sharedData, omdbapi) {
+var movieDetailsController = function($scope, $ionicHistory, $ionicLoading, sharedData, omdbapi) {
+  $ionicLoading.show({
+      template: '<ion-spinner icon="spiral"/>'
+  })
+
+  $scope.hideContent = true;
+
   var replaceRegex = new RegExp('%20', 'g');
   var yearRegex = new RegExp('[0-9]{4}');
   $scope.path = sharedData.getCurrentFilePath();
@@ -24,6 +30,8 @@ var movieDetailsController = function($scope, sharedData, omdbapi) {
 
   omdbapi.getMovieInfo(title, year)
     .then(function(data){
+            $ionicLoading.hide();
+            $scope.hideContent = false;
             $scope.movie = data;
           }, function(reason){
             console.log("Error occured fetching movie data: " + reason);
@@ -43,6 +51,10 @@ var movieDetailsController = function($scope, sharedData, omdbapi) {
 
     $scope.playMovie = function(){
       window.open($scope.path, '_system');
+    };
+
+    $scope.goBack = function(){
+      $ionicHistory.goBack();
     }
 };
 

@@ -50,7 +50,6 @@ var fileController = function($scope, $ionicPlatform, $window, fileFactory, omdb
   };
 
   var getFileInfo = function(path){
-    console.log('path= ' + path);
     var replaceRegex = new RegExp('%20', 'g');
     var yearRegex = new RegExp('[0-9]{4}');
 
@@ -58,13 +57,7 @@ var fileController = function($scope, $ionicPlatform, $window, fileFactory, omdb
     var year = '';
     var splitPath = path.split('/');
     var fileName = splitPath[splitPath.length - 1];
-
-    console.log('fileName= ' + fileName);
-    fileName = fileName.replace(replaceRegex, ".");
-    console.log('fileName= ' + fileName);
-
-    var splitFileName = fileName.split('.');
-    console.log(splitFileName);
+    var splitFileName = fileName.replace(replaceRegex, ".").split('.');
 
     for(i = 0; i < splitFileName.length; i++){
       if(yearRegex.test(splitFileName[i])){
@@ -79,9 +72,6 @@ var fileController = function($scope, $ionicPlatform, $window, fileFactory, omdb
       }
     }
 
-    console.log('title= ' + title);
-    console.log('year= ' + year);
-
     omdbapi.getMovieInfo(title, year)
       .then(function(data){
               $scope.file = data
@@ -89,9 +79,6 @@ var fileController = function($scope, $ionicPlatform, $window, fileFactory, omdb
               console.log("Error occured fetching movie data: " + reason);
             }
       );
-
-    console.log($scope.file.Title);
-    console.log($scope.file.imdbRating);
   };
 };
 

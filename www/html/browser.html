@@ -1,0 +1,16 @@
+<ion-view>
+  <ion-header-bar class="bar-stable">
+    <h1 class="title">Browser</h1>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list">
+      <div ng-repeat="file in files">
+        <a class="item item-icon-left" href="#" ng-click="getContents(file.nativeURL, file.isDirectory)">
+          <i ng-show="file.isDirectory" class="icon ion-folder"></i>
+          <i ng-show="file.isVideoFile" class="icon ion-android-film"></i>
+          {{file.name}}
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

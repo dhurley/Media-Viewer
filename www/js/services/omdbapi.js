@@ -1,12 +1,12 @@
 var omdbapi = function($http){
-	var getMediaInfo = function(keyword){
-		return $http.get('http://www.omdbapi.com/?s=' + keyword)
+	var getMovies = function(keyword){
+		return $http.get('http://www.omdbapi.com/?s=' + keyword + '&type=movie')
 					.then(function(response){
 						return response.data;
 					});
 	};
 
-	var getMovieInfo = function(title, year){
+	var getMovieDetails = function(title, year){
 		return $http.get('http://www.omdbapi.com/?t=' + title + '&y=' + year + '&type=movie&tomatoes=true')
 					.then(function(response){
 						return response.data;
@@ -14,8 +14,8 @@ var omdbapi = function($http){
 	};
 
 	return{
-		getMediaInfo: getMediaInfo,
-		getMovieInfo: getMovieInfo
+		getMovies: getMovies,
+		getMovieDetails: getMovieDetails
 	};
 }
 

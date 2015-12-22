@@ -2,7 +2,6 @@
   <ion-header-bar align-title="center" class="bar-stable">
     <button class="button button-icon icon icon-left ion-chevron-left button-clear button-dark" ng-click="goBack()">Back</button>
     <h1 class="title">Media Viewer</h1>
-    <button class="button button-clear button-positive" ng-click="openPopover($event)">Filter</button>
   </ion-header-bar>
   <ion-content>
     <div class="list">
@@ -15,10 +14,10 @@
     </div>
     <ion-scroll direction="y">
       <div class="list">
-        <a class="item item-thumbnail-left" href="#" ng-repeat="mediaItem in mediaItems" ng-click="viewDetails(mediaItem)">
-          <img src="{{mediaItem.Poster}}">
-          <h2>{{mediaItem.Title}}</h2>
-          <p>{{mediaItem.Year}}</p>
+        <a class="item item-thumbnail-left" href="#" ng-repeat="movie in movies" ng-click="viewDetails(movie)">
+          <img src="{{movie.Poster}}">
+          <h2>{{movie.Title}}</h2>
+          <p>{{movie.Year}}</p>
         </a>
       </div>
     </ion-scroll>

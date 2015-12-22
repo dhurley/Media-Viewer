@@ -1,14 +1,5 @@
 var sharedData = function(){
-	var currentFilePath;
 	var currentMovie;
-
-	var setCurrentFilePath = function(data){
-		currentFilePath = data;
-	};
-
-	var getCurrentFilePath = function(){
-		return currentFilePath;
-	};
 
 	var setCurrentMovie = function(data){
 		currentMovie = data;
@@ -19,8 +10,6 @@ var sharedData = function(){
 	};
 
 	return{
-		setCurrentFilePath: setCurrentFilePath,
-    getCurrentFilePath: getCurrentFilePath,
 		setCurrentMovie: setCurrentMovie,
 		getCurrentMovie: getCurrentMovie
 	};

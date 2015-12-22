@@ -1,14 +1,12 @@
-var onlineMovieDetailsController = function($scope, $ionicHistory, $ionicLoading, sharedData, omdbapi) {
+var movieDetailsController = function($scope, $ionicHistory, $ionicLoading, sharedData, omdbapi) {
   $ionicLoading.show({
       template: '<ion-spinner icon="spiral"/>'
   })
 
   $scope.hideContent = true;
-  $scope.hidePlayIcon = true;
-  $scope.showGooglePlayStoreIcon = true;
   $scope.movie = sharedData.getCurrentMovie();
 
-  omdbapi.getMovieInfo($scope.movie.Title, $scope.movie.Year)
+  omdbapi.getMovieDetails($scope.movie.Title, $scope.movie.Year)
     .then(function(data){
             $ionicLoading.hide();
             $scope.hideContent = false;
@@ -41,13 +39,9 @@ var onlineMovieDetailsController = function($scope, $ionicHistory, $ionicLoading
       window.open(url, '_system');
     };
 
-    $scope.playMovie = function(){
-      window.open($scope.path, '_system');
-    };
-
     $scope.goBack = function(){
       $ionicHistory.goBack();
     }
 };
 
-app.controller('onlineMovieDetailsController', onlineMovieDetailsController);
+app.controller('movieDetailsController', movieDetailsController);

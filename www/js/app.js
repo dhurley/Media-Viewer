@@ -28,25 +28,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/',
     templateUrl: 'html/home.html'
   })
-  .state('device', {
-    url: '/device',
-    templateUrl: 'html/device.html',
-    controller: 'deviceController'
+  .state('movies', {
+    url: '/movies',
+    templateUrl: 'html/movies.html',
+    controller: 'moviesController'
   })
-  .state('deviceMovieDetails', {
-    url: '/deviceMovieDetails',
+  .state('movieDetails', {
+    url: '/movieDetails',
     templateUrl: 'html/movieDetails.html',
-    controller: 'deviceMovieDetailsController'
-  })
-  .state('online', {
-    url: '/online',
-    templateUrl: 'html/online.html',
-    controller: 'onlineController'
-  })
-  .state('onlineMovieDetails', {
-    url: '/onlineMovieDetails',
-    templateUrl: 'html/movieDetails.html',
-    controller: 'onlineMovieDetailsController'
+    controller: 'movieDetailsController'
   });
 
   $urlRouterProvider.otherwise('/');

@@ -10,14 +10,11 @@
           <h2>{{movie.Title}}</h2>
           <p>{{movie.Year}}</p>
         </div>
-        <div class="col col-20" ng-show="showGooglePlayStoreIcon">
+        <div class="col col-20">
           <button class="button button-icon icon red-icon ion-android-playstore" ng-click="launchGooglePlayStore(movie.Title, movie.Year)"></button>
         </div>
         <div class="col col-20">
           <button class="button button-icon icon red-icon ion-social-youtube" ng-click="lauchYoutube(movie.Title, movie.Year)"></button>
-        </div>
-        <div class="col col-20" ng-hide="hidePlayIcon">
-          <button class="button button-icon icon red-icon ion-play" ng-click="playMovie()"></button>
         </div>
       </div>
       <div class="item item-body">

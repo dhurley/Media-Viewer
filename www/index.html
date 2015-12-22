@@ -23,8 +23,9 @@
     <script src="js/services/sharedData.js"></script>
     <script src="js/services/fileFactory.js"></script>
     <script src="js/services/omdbapi.js"></script>
-    <script src="js/controllers/fileController.js"></script>
-    <script src="js/controllers/movieDetailsController.js"></script>
+    <script src="js/controllers/deviceController.js"></script>
+    <script src="js/controllers/onlineController.js"></script>
+    <script src="js/controllers/deviceMovieDetailsController.js"></script>
   </head>
   <body ng-app="starter">
     <ion-pane>
@@ -33,13 +34,12 @@
         <!-- Left Side Menu -->
         <ion-side-menu side="left">
           <header class="bar bar-header bar-dark">
-            <h1 class="title">Bookmarks</h1>
+            <h1 class="title">Media Viewer</h1>
           </header>
           <ion-content class="has-header">
             <ul class="list">
-              <li class="item">Downloads</li>
-              <li class="item">TV</li>
-              <li class="item">Movies</li>
+              <li class="item" menu-toggle="left" ui-sref="device">Device</li>
+              <li class="item" menu-toggle="left" ui-sref="online">Online</li>
             </ul>
           </ion-content>
         </ion-side-menu>

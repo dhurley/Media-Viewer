@@ -24,14 +24,18 @@ app.run(function($ionicPlatform) {
 });
 
 app.config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider.state('browser', {
+  $stateProvider.state('device', {
     url: '/',
-    templateUrl: 'html/browser.html',
-    controller: 'fileController'
-  }).state('movieDetails', {
-    url: '/movieDetails',
+    templateUrl: 'html/device.html',
+    controller: 'deviceController'
+  }).state('deviceMovieDetails', {
+    url: '/deviceMovieDetails',
     templateUrl: 'html/movieDetails.html',
-    controller: 'movieDetailsController'
+    controller: 'deviceMovieDetailsController'
+  }).state('online', {
+    url: '/online',
+    templateUrl: 'html/online.html',
+    controller: 'onlineController'
   });
 
   $urlRouterProvider.otherwise('/');

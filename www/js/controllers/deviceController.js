@@ -1,4 +1,4 @@
-var fileController = function($scope, $ionicPlatform, $window, $state, fileFactory, sharedData) {
+var deviceController = function($scope, $ionicPlatform, $window, $state, fileFactory, sharedData) {
   var file = new fileFactory();
 
   $ionicPlatform.ready(function() {
@@ -21,7 +21,7 @@ var fileController = function($scope, $ionicPlatform, $window, $state, fileFacto
       });
     }else{
       sharedData.setCurrentFilePath(path);
-      $state.go('movieDetails');
+      $state.go('deviceMovieDetails');
     }
   };
 
@@ -51,4 +51,4 @@ var fileController = function($scope, $ionicPlatform, $window, $state, fileFacto
   };
 };
 
-app.controller('fileController', fileController);
+app.controller('deviceController', deviceController);

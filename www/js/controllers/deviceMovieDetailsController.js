@@ -1,4 +1,4 @@
-var movieDetailsController = function($scope, $ionicHistory, $ionicLoading, sharedData, omdbapi) {
+var deviceMovieDetailsController = function($scope, $ionicHistory, $ionicLoading, sharedData, omdbapi) {
   $ionicLoading.show({
       template: '<ion-spinner icon="spiral"/>'
   })
@@ -34,6 +34,7 @@ var movieDetailsController = function($scope, $ionicHistory, $ionicLoading, shar
             $scope.hideContent = false;
             $scope.movie = data;
           }, function(reason){
+            $ionicLoading.hide();
             console.log("Error occured fetching movie data: " + reason);
           }
     );
@@ -58,4 +59,4 @@ var movieDetailsController = function($scope, $ionicHistory, $ionicLoading, shar
     }
 };
 
-app.controller('movieDetailsController', movieDetailsController);
+app.controller('deviceMovieDetailsController', deviceMovieDetailsController);

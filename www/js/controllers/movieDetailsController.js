@@ -1,12 +1,12 @@
-var movieDetailsController = function($scope, $ionicHistory, $ionicLoading, sharedData, omdbapi) {
+var movieDetailsController = function($scope, $ionicHistory, $ionicLoading, sharedData, omdbApi) {
   $ionicLoading.show({
       template: '<ion-spinner icon="spiral"/>'
   })
 
   $scope.hideContent = true;
-  $scope.movie = sharedData.getCurrentMovie();
+  $scope.movie = sharedData.getCurrentData();
 
-  omdbapi.getMovieDetails($scope.movie.Title, $scope.movie.Year)
+  omdbApi.getMovieDetails($scope.movie.Title, $scope.movie.Year)
     .then(function(data){
             $ionicLoading.hide();
             $scope.hideContent = false;

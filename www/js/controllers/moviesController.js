@@ -1,4 +1,4 @@
-var moviesController = function($scope, $ionicLoading, $state, $ionicHistory, sharedData, omdbapi) {
+var moviesController = function($scope, $ionicLoading, $state, $ionicHistory, sharedData, omdbApi) {
   $scope.movies = [];
 
   $scope.search = function(keyword){
@@ -6,7 +6,7 @@ var moviesController = function($scope, $ionicLoading, $state, $ionicHistory, sh
         template: '<ion-spinner icon="spiral"/>'
     })
 
-    omdbapi.getMovies(keyword + '*')
+    omdbApi.getMovies(keyword + '*')
       .then(function(data){
               $ionicLoading.hide();
               $scope.movies = data.Search;
@@ -18,7 +18,7 @@ var moviesController = function($scope, $ionicLoading, $state, $ionicHistory, sh
   };
 
   $scope.viewDetails = function(movie){
-    sharedData.setCurrentMovie(movie);
+    sharedData.setCurrentData(movie);
     $state.go('movieDetails');
   };
 

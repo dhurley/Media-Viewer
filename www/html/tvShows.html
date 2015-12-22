@@ -1,7 +1,7 @@
 <ion-view>
   <ion-header-bar align-title="center" class="bar-stable">
     <button class="button button-icon icon icon-left ion-chevron-left button-clear button-dark" ng-click="goBack()">Back</button>
-    <h1 class="title">Movies</h1>
+    <h1 class="title">TV Shows</h1>
   </ion-header-bar>
   <ion-content>
     <div class="list">
@@ -14,10 +14,10 @@
     </div>
     <ion-scroll direction="y">
       <div class="list">
-        <a class="item item-thumbnail-left" href="#" ng-repeat="movie in movies" ng-click="viewDetails(movie)">
-          <img src="{{movie.Poster}}">
-          <h2>{{movie.Title}}</h2>
-          <p>{{movie.Year}}</p>
+        <a class="item item-thumbnail-left" href="#" ng-repeat="tvShow in tvShows" ng-click="viewDetails(tvShow)">
+          <img src="{{tvShow.show.image.medium}}">
+          <h2>{{tvShow.show.name}}</h2>
+          <p>{{tvShow.show.premiered.substr(0, 4)}}</p>
         </a>
       </div>
     </ion-scroll>

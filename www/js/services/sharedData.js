@@ -1,17 +1,17 @@
 var sharedData = function(){
-	var currentMovie;
+	var currentData;
 
-	var setCurrentMovie = function(data){
-		currentMovie = data;
+	var setCurrentData = function(data){
+		currentData = data;
 	};
 
-	var getCurrentMovie = function(){
-		return currentMovie;
+	var getCurrentData = function(){
+		return currentData;
 	};
 
 	return{
-		setCurrentMovie: setCurrentMovie,
-		getCurrentMovie: getCurrentMovie
+		setCurrentData: setCurrentData,
+		getCurrentData: getCurrentData
 	};
 }
 

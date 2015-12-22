@@ -1,4 +1,4 @@
-var omdbapi = function($http){
+var omdbApi = function($http){
 	var getMovies = function(keyword){
 		return $http.get('http://www.omdbapi.com/?s=' + keyword + '&type=movie')
 					.then(function(response){
@@ -19,4 +19,4 @@ var omdbapi = function($http){
 	};
 }
 
-app.factory('omdbapi', omdbapi);
+app.factory('omdbApi', omdbApi);

@@ -37,6 +37,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/movieDetails',
     templateUrl: 'html/movieDetails.html',
     controller: 'movieDetailsController'
+  })
+  .state('tvShows', {
+    url: '/tvShows',
+    templateUrl: 'html/tvShows.html',
+    controller: 'tvShowsController'
+  })
+  .state('tvShowDetails', {
+    url: '/tvShowDetails',
+    templateUrl: 'html/tvShowDetails.html',
+    controller: 'tvShowDetailsController'
   });
 
   $urlRouterProvider.otherwise('/');

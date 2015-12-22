@@ -1,4 +1,4 @@
-var onlineController = function($scope, $ionicLoading, $ionicPopover, omdbapi) {
+var onlineController = function($scope, $ionicLoading, $ionicPopover, $state, $ionicHistory, sharedData, omdbapi) {
   var currentYear = new Date().getFullYear();
 
   $scope.years = [];
@@ -42,6 +42,19 @@ var onlineController = function($scope, $ionicLoading, $ionicPopover, omdbapi) {
               console.log("Error occured fetching movie data: " + reason);
             }
       );
+  };
+
+  $scope.viewDetails = function(mediaItem){
+    if(mediaItem.Type == 'movie'){
+      sharedData.setCurrentMovie(mediaItem);
+      $state.go('onlineMovieDetails');
+    }else{
+      console.log('Uknown Media!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+    }
+  };
+
+  $scope.goBack = function(){
+    $ionicHistory.goBack();
   }
 };
 

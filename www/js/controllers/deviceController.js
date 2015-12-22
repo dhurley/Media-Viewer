@@ -1,29 +1,5 @@
-var deviceController = function($scope, $ionicPlatform, $window, $state, fileFactory, sharedData) {
+var deviceController = function($scope, $ionicPlatform, $window, $state, $ionicHistory, fileFactory, sharedData) {
   var file = new fileFactory();
-
-  $ionicPlatform.ready(function() {
-    $scope.getContents(cordova.file.externalRootDirectory, true);
-  });
-
-  $scope.getContents = function(path, isDirectory) {
-    if(isDirectory){
-      file.getEntries(path).then(function(result) {
-        $scope.files = result;
-        if(path != cordova.file.externalRootDirectory){
-          $scope.files.unshift({name: '[parent]'});
-          file.getParentDirectory(path).then(function(result) {
-            result.name = '[parent]';
-            $scope.files[0] = result;
-          });
-        }
-        $scope.files = addIsVideoFileAttribute($scope.files);
-        $scope.files = removeUnknownFiles($scope.files);
-      });
-    }else{
-      sharedData.setCurrentFilePath(path);
-      $state.go('deviceMovieDetails');
-    }
-  };
 
   var addIsVideoFileAttribute = function(files){
     var regex = new RegExp('^.*\.(avi|AVI|wmv|WMV|flv|FLV|mpg|MPG|mp4|MP4|mkv|MKV)$');
@@ -49,6 +25,32 @@ var deviceController = function($scope, $ionicPlatform, $window, $state, fileFac
 
     return filteredFiles;
   };
+
+  $scope.getContents = function(path, isDirectory) {
+    if(isDirectory){
+      file.getEntries(path).then(function(result) {
+        $scope.files = result;
+        if(path != cordova.file.externalRootDirectory){
+          $scope.files.unshift({name: '[parent]'});
+          file.getParentDirectory(path).then(function(result) {
+            result.name = '[parent]';
+            $scope.files[0] = result;
+          });
+        }
+        $scope.files = addIsVideoFileAttribute($scope.files);
+        $scope.files = removeUnknownFiles($scope.files);
+      });
+    }else{
+      sharedData.setCurrentFilePath(path);
+      $state.go('deviceMovieDetails');
+    }
+  };
+
+  $scope.getContents(cordova.file.externalRootDirectory, true);
+
+  $scope.goBack = function(){
+    $ionicHistory.goBack();
+  }
 };
 
 app.controller('deviceController', deviceController);

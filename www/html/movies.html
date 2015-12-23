@@ -15,7 +15,7 @@
     <ion-scroll direction="y">
       <div class="list">
         <a class="item item-thumbnail-left" href="#" ng-repeat="movie in movies" ng-click="viewDetails(movie)">
-          <img src="{{movie.Poster}}">
+          <img src="{{movie.Poster || 'img/no_image.png'}}">
           <h2>{{movie.Title}}</h2>
           <p>{{movie.Year}}</p>
         </a>

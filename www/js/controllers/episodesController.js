@@ -1,20 +1,8 @@
 var episodesController = function($scope, $ionicHistory, $state, sharedData) {
   $scope.tvShow = sharedData.getCurrentData();
-  $scope.episodesHtml = '<div class="list">';
 
   var episodes = $scope.tvShow._embedded.episodes;
   var seasonNumber = 0;
- //
- //  for(i = 0; i < episodes.length; i++){
- //    if(episodes[i].season != seasonNumber){
- //      seasonNumber++;
- //      $scope.episodesHtml = $scope.episodesHtml + '<div class="item item-divider">Season ' + seasonNumber + '</div>';
- //    }
- //
- //    $scope.episodesHtml = $scope.episodesHtml + '<a class="item" href="#">Episode ' + episodes[i].number + '</a>';
- //  }
- //
- // $scope.episodesHtml = $scope.episodesHtml + "</div>";
 
   $scope.seasons = [];
   for(i = 0; i < episodes.length; i++){

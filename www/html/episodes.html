@@ -5,14 +5,14 @@
   </ion-header-bar>
   <ion-content>
     <ion-list>
-        <div ng-repeat="season in seasons">
-          <ion-item class="item-stable" ng-click="toggleSeason(season)" ng-class="{active: isSeasonShown(season)}">
-              <i class="icon" ng-class="isSeasonShown(season) ? 'ion-minus' : 'ion-plus'"></i> &nbsp; Season {{season.number}}
-          </ion-item>
-          <ion-item class="item-accordion" ng-repeat="episode in season.episodes" ng-show="isSeasonShown(season)" ng-click="viewEpisode(episode)">
-            Episode {{episode.number}}
-          </ion-item>
-        </div>
-      </ion-list>
+      <div ng-repeat="season in seasons">
+        <ion-item class="item-stable" ng-click="toggleSeason(season)" ng-class="{active: isSeasonShown(season)}">
+            <i class="icon" ng-class="isSeasonShown(season) ? 'ion-minus' : 'ion-plus'"></i> &nbsp; Season {{season.number}}
+        </ion-item>
+        <ion-item class="item-accordion" ng-repeat="episode in season.episodes" ng-show="isSeasonShown(season)" ng-click="viewEpisode(episode)">
+          Episode {{episode.number}}
+        </ion-item>
+      </div>
+    </ion-list>
   </ion-content>
 </ion-view>

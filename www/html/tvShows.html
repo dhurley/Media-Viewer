@@ -15,7 +15,7 @@
     <ion-scroll direction="y">
       <div class="list">
         <a class="item item-thumbnail-left" href="#" ng-repeat="tvShow in tvShows" ng-click="viewDetails(tvShow)">
-          <img src="{{tvShow.show.image.medium}}">
+          <img ng-src="{{tvShow.show.image.medium || 'img/no_image.png'}}">
           <h2>{{tvShow.show.name}}</h2>
           <p>{{tvShow.show.premiered.substr(0, 4)}}</p>
         </a>

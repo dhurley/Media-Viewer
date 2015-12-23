@@ -1,0 +1,22 @@
+<ion-view>
+  <ion-header-bar align-title="center" class="bar-stable">
+    <button class="button button-icon icon icon-left ion-chevron-left button-clear button-dark" ng-click="goBack()">Back</button>
+    <h1 class="title">Season: {{episode.season}} Episode: {{episode.number}}</h1>
+  </ion-header-bar>
+  <ion-content>
+    <ion-content>
+      <div class="list card">
+        <div class="item row">
+          <div class="col">
+            <h2>{{episode.name}}</h2>
+            <p>{{episode.airdate}}</p>
+          </div>
+        </div>
+        <div class="item item-body">
+          <img class="full-image" src="{{episode.image.medium || 'img/no_image.png'}}">
+        </div>
+        <div class="item item-body" ng-bind-html="episode.summary"></div>
+      </div>
+    </ion-content>
+  </ion-content>
+</ion-view>

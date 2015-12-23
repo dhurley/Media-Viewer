@@ -52,6 +52,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/episodes',
     templateUrl: 'html/episodes.html',
     controller: 'episodesController'
+  })
+  .state('episode', {
+    url: '/episode',
+    templateUrl: 'html/episode.html',
+    controller: 'episodeController'
   });
 
   $urlRouterProvider.otherwise('/');

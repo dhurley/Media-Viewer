@@ -12,7 +12,14 @@
         <button ng-click="search(keyword)" class="button button-small">Search</button>
       </div>
     </div>
-    <ion-scroll direction="y">
+
+    <div ng-show="movies.errorInformation" class="list card">
+      <div class="item text-cente">
+        <h2>{{movies.errorInformation}}</h2>
+      </div>
+    </div>
+
+    <ion-scroll ng-hide="movies.errorInformation" direction="y">
       <div class="list">
         <a class="item item-thumbnail-left" href="#" ng-repeat="movie in movies" ng-click="viewDetails(movie)">
           <img src="{{movie.Poster || 'img/no_image.png'}}">

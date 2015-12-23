@@ -28,7 +28,7 @@ var episodesController = function($scope, $ionicHistory, $state, sharedData) {
 
   $scope.viewEpisode = function(episode) {
       sharedData.setCurrentData(episode);
-      $state.go('episode');
+      $state.go('episodeDetails');
   };
 
   $scope.goBack = function(){

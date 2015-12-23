@@ -9,7 +9,7 @@ var moviesController = function($scope, $ionicLoading, $state, $ionicHistory, sh
     omdbApi.getMovies(keyword + '*')
       .then(function(data){
               $ionicLoading.hide();
-              $scope.movies = data.Search;
+              $scope.movies = data;
             }, function(reason){
               $ionicLoading.hide();
               console.log("Error occured fetching movie data: " + reason);

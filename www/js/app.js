@@ -53,10 +53,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
     templateUrl: 'html/episodes.html',
     controller: 'episodesController'
   })
-  .state('episode', {
-    url: '/episode',
-    templateUrl: 'html/episode.html',
-    controller: 'episodeController'
+  .state('episodeDetails', {
+    url: '/episodeDetails',
+    templateUrl: 'html/episodeDetails.html',
+    controller: 'episodeDetailsController'
   })
   .state('games', {
     url: '/games',

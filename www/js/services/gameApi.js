@@ -12,7 +12,12 @@ var gameApi = function($ionicPlatform, $http){
 	var getGames = function(keyword){
 		return $http.get('https://api.hitbox.tv/games?q=' + keyword)
 					.then(function(response){
+						if(response.data.categories.length == 0){
+							return {errorInformation: 'No Games Found.'}
+						}
 						return response.data.categories;
+					}, function(response){
+						return {errorInformation: 'No Games Found.'}
 					});
 	};
 
@@ -22,7 +27,7 @@ var gameApi = function($ionicPlatform, $http){
 					.then(function(response){
 						return response.data[appId].data;
 					}, function(response){
-						return {errorInformation: 'No further Information Available.'}
+						return {errorInformation: 'No Further Information Available.'}
 					});
 	};
 

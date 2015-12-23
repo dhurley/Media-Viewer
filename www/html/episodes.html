@@ -1,0 +1,18 @@
+<ion-view>
+  <ion-header-bar align-title="center" class="bar-stable">
+    <button class="button button-icon icon icon-left ion-chevron-left button-clear button-dark" ng-click="goBack()">Back</button>
+    <h1 class="title">{{tvShow.name}}</h1>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+        <div ng-repeat="season in seasons">
+          <ion-item class="item-stable" ng-click="toggleSeason(season)" ng-class="{active: isSeasonShown(season)}">
+              <i class="icon" ng-class="isSeasonShown(season) ? 'ion-minus' : 'ion-plus'"></i> &nbsp; Season {{season.number}}
+          </ion-item>
+          <ion-item class="item-accordion" ng-repeat="episode in season.episodes" ng-show="isSeasonShown(season)" ng-click="viewEpisode(episode)">
+            Episode {{episode.number}}
+          </ion-item>
+        </div>
+      </ion-list>
+  </ion-content>
+</ion-view>

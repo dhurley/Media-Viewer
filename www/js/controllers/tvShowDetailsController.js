@@ -1,4 +1,4 @@
-var tvShowDetailsController = function($scope, $ionicHistory, $ionicLoading, sharedData, tvMazeApi) {
+var tvShowDetailsController = function($scope, $ionicHistory, $ionicLoading, $state, sharedData, tvMazeApi) {
   $ionicLoading.show({
       template: '<ion-spinner icon="spiral"/>'
   })
@@ -16,6 +16,11 @@ var tvShowDetailsController = function($scope, $ionicHistory, $ionicLoading, sha
             console.log("Error occured fetching TV show data: " + reason);
           }
     );
+
+    $scope.viewEpisodes = function(tvShow){
+      sharedData.setCurrentData(tvShow);
+      $state.go('episodes');
+    };
 
     $scope.goBack = function(){
       $ionicHistory.goBack();

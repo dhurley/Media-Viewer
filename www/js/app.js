@@ -57,6 +57,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/episode',
     templateUrl: 'html/episode.html',
     controller: 'episodeController'
+  })
+  .state('games', {
+    url: '/games',
+    templateUrl: 'html/games.html',
+    controller: 'gamesController'
+  })
+  .state('gameDetails', {
+    url: '/gameDetails',
+    templateUrl: 'html/gameDetails.html',
+    controller: 'gameDetailsController'
   });
 
   $urlRouterProvider.otherwise('/');

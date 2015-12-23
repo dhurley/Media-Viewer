@@ -1,15 +1,15 @@
-var tvShowsController = function($scope, $ionicLoading, $state, $ionicHistory, sharedData, tvMazeApi) {
-  $scope.tvShows = [];
+var gamesController = function($scope, $ionicLoading, $state, $ionicHistory, sharedData, gameApi) {
+  $scope.games = [];
 
   $scope.search = function(keyword){
     $ionicLoading.show({
         template: '<ion-spinner icon="spiral"/>'
     })
 
-    tvMazeApi.getTvShows(keyword)
+    gameApi.getGames(keyword)
       .then(function(data){
               $ionicLoading.hide();
-              $scope.tvShows = data;
+              $scope.games = data;
             }, function(reason){
               $ionicLoading.hide();
               console.log("Error occured fetching movie data: " + reason);
@@ -17,9 +17,9 @@ var tvShowsController = function($scope, $ionicLoading, $state, $ionicHistory, s
       );
   };
 
-  $scope.viewDetails = function(tvShow){
-    sharedData.setCurrentData(tvShow);
-    $state.go('tvShowDetails');
+  $scope.viewDetails = function(game){
+    sharedData.setCurrentData(game);
+    $state.go('gameDetails');
   };
 
   $scope.goBack = function(){
@@ -27,4 +27,4 @@ var tvShowsController = function($scope, $ionicLoading, $state, $ionicHistory, s
   }
 };
 
-app.controller('tvShowsController', tvShowsController);
+app.controller('gamesController', gamesController);

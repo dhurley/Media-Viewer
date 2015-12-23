@@ -5,17 +5,9 @@
   </ion-header-bar>
   <ion-content ng-hide="hideContent">
     <div class="list card">
-      <div class="item row">
-        <div class="col">
-          <h2>{{movie.Title}}</h2>
-          <p>{{movie.Year}}</p>
-        </div>
-        <div class="col col-20">
-          <button class="button button-icon icon red-icon ion-android-playstore" ng-click="launchGooglePlayStore(movie.Title, movie.Year)"></button>
-        </div>
-        <div class="col col-20">
-          <button class="button button-icon icon red-icon ion-social-youtube" ng-click="lauchYoutube(movie.Title, movie.Year)"></button>
-        </div>
+      <div class="item">
+        <h2>{{movie.Title}}</h2>
+        <p>{{movie.Year}}</p>
       </div>
       <div class="item item-body">
         <img class="full-image" src="{{movie.Poster || 'img/no_image.png'}}">
@@ -31,6 +23,10 @@
       <div class="item">
         <p>IMDB Rating: {{movie.imdbRating}}</p>
         <p>Rotten Tomatoes Rating: {{movie.tomatoRating}}</p>
+      </div>
+      <div class="item row">
+        <button class="col col-offset-20 col-20 button icon-left ion-social-youtube button-clear button-balanced" ng-click="lauchYoutube(movie.Title, movie.Year)">Trailer</button>
+        <button class="col col-offset-20 col-20 button icon-left ion-android-playstore button-clear button-balanced" ng-click="launchGooglePlayStore(movie.Title, movie.Year)">Buy</button>
       </div>
     </div>
   </ion-content>

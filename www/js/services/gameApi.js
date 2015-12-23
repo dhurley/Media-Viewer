@@ -15,14 +15,26 @@ var gameApi = function($ionicPlatform, $http){
 						if(response.data.categories.length == 0){
 							return {errorInformation: 'No Games Found.'}
 						}
-						return response.data.categories;
+
+						var data = response.data.categories;
+						var games = [];
+						for(var j = 0; j < data.length; j++){
+							for(var i = 0; i < steamAppIds.length; i++){
+								if(steamAppIds[i].name == data[j].category_name){
+									data[j].steamAppId = steamAppIds[i].appid;
+									games.push(data[j]);
+									break;
+								}
+							}
+						}
+
+						return games;
 					}, function(response){
 						return {errorInformation: 'No Games Found.'}
 					});
 	};
 
-	var getGameDetails = function(name){
-		var appId = getSteammAppId(name);
+	var getGameDetails = function(appId){
 		return $http.get('http://store.steampowered.com/api/appdetails?appids=' + appId)
 					.then(function(response){
 						return response.data[appId].data;
@@ -30,14 +42,6 @@ var gameApi = function($ionicPlatform, $http){
 						return {errorInformation: 'No Further Information Available.'}
 					});
 	};
-
-	var getSteammAppId = function(name){
-		for(i = 0; i < steamAppIds.length; i++){
-			if(steamAppIds[i].name == name){
-				return steamAppIds[i].appid;
-			}
-		}
-	}
 
 	return{
 		getGames: getGames,

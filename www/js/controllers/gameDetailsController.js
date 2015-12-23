@@ -6,7 +6,7 @@ var gameDetailsController = function($scope, $ionicHistory, $ionicLoading, share
   $scope.hideContent = true;
   $scope.game = sharedData.getCurrentData();
 
-  gameApi.getGameDetails($scope.game.category_name)
+  gameApi.getGameDetails($scope.game.steamAppId)
     .then(function(data){
             $ionicLoading.hide();
             $scope.hideContent = false;

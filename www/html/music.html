@@ -1,0 +1,40 @@
+<ion-view>
+  <ion-content>
+    <div class="list">
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input ng-model="keyword" type="text" placeholder="Keyword">
+        </label>
+        <select ng-model="musicType" class="button button-small button-calm">
+          <option>Track</option>
+          <option>Artist</option>
+          <option>Album</option>
+        </select>
+        <button ng-click="search(keyword, musicType)" class="button button-small button-dark">Search</button>
+      </div>
+    </div>
+
+    <div ng-show="data.errorInformation" class="list card">
+      <div class="item text-center">
+        <h2>{{data.errorInformation}}</h2>
+      </div>
+    </div>
+
+    <ion-scroll ng-hide="data.errorInformation" direction="y">
+      <div class="list">
+        <div class="list card" ng-repeat="item in data">
+          <div class="item item-thumbnail-left">
+            <img src="{{item.images[item.images.length - 2].url || 'img/no_image.png'}}">
+            <h2>{{item.name}}</h2>
+            <p><span ng-repeat="artist in item.artists">{{artist.name}} </span></p>
+          </div>
+          <div class="button-bar bar-positive">
+            <a class="button icon-center ion-android-open" ng-click="launchSpotify(item.external_urls.spotify)"> Spotify</a>
+              <a class="button icon-center ion-social-youtube" ng-click="lauchYoutube(item.name)"> Youtube</a>
+            <a class="button icon-center ion-android-playstore" ng-click="launchGooglePlayStore(item.name)"> Play Store</a>
+          </div>
+        </div>
+      </div>
+    </ion-scroll>
+  </ion-content>
+</ion-view>

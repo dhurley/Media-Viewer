@@ -95,6 +95,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
         controller: 'gameDetailsController'
       }
     }
+  })
+  .state('music', {
+    url: '/music',
+    views: {
+      'tab-music': {
+        templateUrl: 'html/music.html',
+        controller: 'musicController'
+      }
+    }
   });
 
   $urlRouterProvider.otherwise('/movies');

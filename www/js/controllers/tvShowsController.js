@@ -20,10 +20,6 @@ var tvShowsController = function($scope, $ionicLoading, $state, $ionicHistory, s
   $scope.viewDetails = function(tvShow){
     sharedData.setCurrentData(tvShow);
     $state.go('tvShowDetails');
-  };
-
-  $scope.goBack = function(){
-    $ionicHistory.goBack();
   }
 };
 

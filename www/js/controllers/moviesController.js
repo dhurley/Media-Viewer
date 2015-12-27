@@ -20,10 +20,6 @@ var moviesController = function($scope, $ionicLoading, $state, $ionicHistory, sh
   $scope.viewDetails = function(movie){
     sharedData.setCurrentData(movie);
     $state.go('movieDetails');
-  };
-
-  $scope.goBack = function(){
-    $ionicHistory.goBack();
   }
 };
 

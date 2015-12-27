@@ -1,12 +1,6 @@
 <ion-view>
-  <ion-content ng-hide="hideContent">
-    <div ng-show="game.errorInformation" class="list card">
-      <div class="item">
-        <h2>{{game.errorInformation}}</h2>
-      </div>
-    </div>
-
-    <div ng-hide="game.errorInformation" class="list card">
+  <ion-content>
+    <div class="list card">
       <div class="item">
         <h2>{{game.name}}</h2>
         <p>{{game.release_date.date}}</p>

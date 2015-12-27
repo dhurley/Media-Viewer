@@ -1,4 +1,4 @@
-var gameApi = function($http){
+var steamApi = function($http){
 
 	var getSteamApps = function(){
 		return $http.get('http://api.steampowered.com/ISteamApps/GetAppList/v2/').then(
@@ -22,4 +22,4 @@ var gameApi = function($http){
 	};
 }
 
-app.factory('gameApi', gameApi);
+app.factory('steamApi', steamApi);

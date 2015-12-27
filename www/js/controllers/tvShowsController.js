@@ -6,15 +6,15 @@ var tvShowsController = function($scope, $ionicLoading, $state, $ionicHistory, s
         template: '<ion-spinner icon="spiral"/>'
     })
 
-    tvMazeApi.getTvShows(keyword)
-      .then(function(data){
-              $ionicLoading.hide();
-              $scope.tvShows = data;
-            }, function(reason){
-              $ionicLoading.hide();
-              console.log("Error occured fetching movie data: " + reason);
-            }
-      );
+    tvMazeApi.getTvShows(keyword).then(
+      function(data){
+        $ionicLoading.hide();
+        $scope.tvShows = data;
+      }, function(reason){
+        $ionicLoading.hide();
+        console.log("Error occured fetching movie data: " + reason);
+      }
+    );
   };
 
   $scope.viewDetails = function(tvShow){

@@ -1,11 +1,11 @@
-var gamesController = function($scope, $ionicLoading, $state, $ionicHistory, $ionicPlatform, $q, sharedData, gameApi) {
+var gamesController = function($scope, $ionicLoading, $state, $ionicHistory, $ionicPlatform, $q, sharedData, steamApi) {
   $scope.games = [];
 
   var steamApps;
   var steamAppsPromise;
 
   $ionicPlatform.ready(function() {
-    steamAppsPromise = gameApi.getSteamApps().then(
+    steamAppsPromise = steamApi.getSteamApps().then(
       function(data){
         steamApps = data;
       }
@@ -22,7 +22,7 @@ var gamesController = function($scope, $ionicLoading, $state, $ionicHistory, $io
 
 		steamApps.forEach(function(steamApp){
 			if(regex.test(steamApp.name)){
-				var gamePromise =gameApi.getGameDetails(steamApp.appid).then(
+				var gamePromise =steamApi.getGameDetails(steamApp.appid).then(
 					function(data){
 						if(data != undefined && data.type == 'game'){
 	            return data;

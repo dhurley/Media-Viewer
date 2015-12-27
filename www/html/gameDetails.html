@@ -1,15 +1,11 @@
 <ion-view>
-  <ion-header-bar align-title="center" class="bar-stable">
-    <button class="button button-icon icon icon-left ion-chevron-left button-clear button-dark" ng-click="goBack()">Back</button>
-    <h1 class="title">{{game.name}}</h1>
-  </ion-header-bar>
   <ion-content ng-hide="hideContent">
     <div ng-show="game.errorInformation" class="list card">
       <div class="item">
         <h2>{{game.errorInformation}}</h2>
       </div>
     </div>
-    
+
     <div ng-hide="game.errorInformation" class="list card">
       <div class="item">
         <h2>{{game.name}}</h2>
@@ -20,14 +16,14 @@
       </div>
       <div class="item item-body" ng-bind-html="game.detailed_description"></div>
       <div class="item">
-        <p>Developers: <span ng-repeat="developer in game.developers">{{developer}}</span></p>
-        <p>Publishers: <span ng-repeat="publisher in game.publishers">{{publisher}}</span></p>
-        <p>Genre: <span ng-repeat="genre in game.genres">{{genre.description}}</span></p>
+        <p>Developers: <span ng-repeat="developer in game.developers">{{developer}} </span></p>
+        <p>Publishers: <span ng-repeat="publisher in game.publishers">{{publisher}} </span></p>
+        <p>Genre: <span ng-repeat="genre in game.genres">{{genre.description}} </span></p>
       </div>
-      <div class="item row">
-        <button class="col col-33 button icon-left ion-social-youtube button-clear button-balanced" ng-click="lauchYoutube(game.name)">Trailer</button>
-        <button class="col col-33 button icon-left ion-social-twitch-outline button-clear button-balanced" ng-click="lauchTwitch(game.name)">Stream</button>
-        <button class="col col-33 button icon-left ion-steam button-clear button-balanced" ng-click="lauchSteam(game.steam_appid)">Buy</button>
+      <div class="button-bar bar-positive">
+        <a class="button icon-center ion-social-youtube" ng-click="lauchYoutube(game.name)"> Trailer</a>
+        <a class="button icon-center ion-social-twitch-outline" ng-click="lauchTwitch(game.name)"> Stream</a>
+        <a class="button icon-center ion-steam" ng-click="lauchSteam(game.steam_appid)"> Buy</a>
       </div>
     </div>
   </ion-content>

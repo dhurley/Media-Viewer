@@ -1,21 +1,6 @@
 var gameDetailsController = function($scope, $ionicHistory, $ionicLoading, sharedData, gameApi) {
-  $ionicLoading.show({
-      template: '<ion-spinner icon="spiral"/>'
-  })
-
-  $scope.hideContent = true;
+  $scope.hideContent = false;
   $scope.game = sharedData.getCurrentData();
-
-  gameApi.getGameDetails($scope.game.steamAppId)
-    .then(function(data){
-            $ionicLoading.hide();
-            $scope.hideContent = false;
-            $scope.game = data;
-          }, function(reason){
-            $ionicLoading.hide();
-            console.log("Error occured fetching game data: " + reason);
-          }
-    );
 
     $scope.lauchYoutube = function(title){
       var url = 'http://www.youtube.com/results?search_query=trailer+';

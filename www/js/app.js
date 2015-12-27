@@ -24,50 +24,78 @@ app.run(function($ionicPlatform) {
 });
 
 app.config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider.state('home', {
-    url: '/',
-    templateUrl: 'html/home.html'
-  })
-  .state('movies', {
+  $stateProvider.state('movies', {
     url: '/movies',
-    templateUrl: 'html/movies.html',
-    controller: 'moviesController'
+    views: {
+      'tab-movies': {
+        templateUrl: 'html/movies.html',
+        controller: 'moviesController'
+      }
+    }
   })
   .state('movieDetails', {
     url: '/movieDetails',
-    templateUrl: 'html/movieDetails.html',
-    controller: 'movieDetailsController'
+    views: {
+      'tab-movies': {
+        templateUrl: 'html/movieDetails.html',
+        controller: 'movieDetailsController'
+      }
+    }
   })
   .state('tvShows', {
     url: '/tvShows',
-    templateUrl: 'html/tvShows.html',
-    controller: 'tvShowsController'
+    views: {
+      'tab-tvShows': {
+        templateUrl: 'html/tvShows.html',
+        controller: 'tvShowsController'
+      }
+    }
   })
   .state('tvShowDetails', {
     url: '/tvShowDetails',
-    templateUrl: 'html/tvShowDetails.html',
-    controller: 'tvShowDetailsController'
+    views: {
+      'tab-tvShows': {
+        templateUrl: 'html/tvShowDetails.html',
+        controller: 'tvShowDetailsController'
+      }
+    }
   })
   .state('episodes', {
     url: '/episodes',
-    templateUrl: 'html/episodes.html',
-    controller: 'episodesController'
+    views: {
+      'tab-tvShows': {
+        templateUrl: 'html/episodes.html',
+        controller: 'episodesController'
+      }
+    }
   })
   .state('episodeDetails', {
     url: '/episodeDetails',
-    templateUrl: 'html/episodeDetails.html',
-    controller: 'episodeDetailsController'
+    views: {
+      'tab-tvShows': {
+        templateUrl: 'html/episodeDetails.html',
+        controller: 'episodeDetailsController'
+      }
+    }
   })
   .state('games', {
     url: '/games',
-    templateUrl: 'html/games.html',
-    controller: 'gamesController'
+    views: {
+      'tab-games': {
+        templateUrl: 'html/games.html',
+        controller: 'gamesController'
+      }
+    }
   })
   .state('gameDetails', {
     url: '/gameDetails',
-    templateUrl: 'html/gameDetails.html',
-    controller: 'gameDetailsController'
+    views: {
+      'tab-games': {
+        templateUrl: 'html/gameDetails.html',
+        controller: 'gameDetailsController'
+      }
+    }
   });
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/movies');
 });

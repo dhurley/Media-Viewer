@@ -1,20 +1,59 @@
-var gamesController = function($scope, $ionicLoading, $state, $ionicHistory, sharedData, gameApi) {
+var gamesController = function($scope, $ionicLoading, $state, $ionicHistory, $ionicPlatform, $q, sharedData, gameApi) {
   $scope.games = [];
+
+  var steamApps;
+  var steamAppsPromise;
+
+  $ionicPlatform.ready(function() {
+    steamAppsPromise = gameApi.getSteamApps().then(
+      function(data){
+        steamApps = data;
+      }
+    )
+  });
 
   $scope.search = function(keyword){
     $ionicLoading.show({
         template: '<ion-spinner icon="spiral"/>'
     })
 
-    gameApi.getGames(keyword)
-      .then(function(data){
-              $ionicLoading.hide();
-              $scope.games = data;
-            }, function(reason){
-              $ionicLoading.hide();
-              console.log("Error occured fetching movie data: " + reason);
-            }
-      );
+    var regex = new RegExp(keyword + '.*');
+		var gamePromises = [];
+
+		steamApps.forEach(function(steamApp){
+			if(regex.test(steamApp.name)){
+				var gamePromise =gameApi.getGameDetails(steamApp.appid).then(
+					function(data){
+						if(data != undefined && data.type == 'game'){
+	            return data;
+						}
+          },
+					function(reason){
+            console.log("Error occured fetching game data: " + reason);
+          }
+		    );
+
+        gamePromises.push(gamePromise);
+			}
+		});
+
+    if(gamePromises.length == 0){
+      $scope.games = {errorInformation: 'No Games Found.'};
+      $ionicLoading.hide();
+    }else{
+      $q.all(gamePromises).then(function(gamesReturned){
+        var games = [];
+
+        gamesReturned.forEach(function(game){
+          if(game != undefined){
+            games.push(game);
+          }
+        });
+
+        $scope.games = games;
+        $ionicLoading.hide();
+  		});
+    }
   };
 
   $scope.viewDetails = function(game){

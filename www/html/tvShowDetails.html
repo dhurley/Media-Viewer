@@ -1,8 +1,4 @@
 <ion-view>
-  <ion-header-bar align-title="center" class="bar-stable">
-    <button class="button button-icon icon icon-left ion-chevron-left button-clear button-dark" ng-click="goBack()">Back</button>
-    <h1 class="title">{{tvShow.name}}</h1>
-  </ion-header-bar>
   <ion-content ng-hide="hideContent">
     <div class="list card">
       <div class="item row">
@@ -10,7 +6,7 @@
           <h2>{{tvShow.name}}</h2>
           <p>{{tvShow.premiered.substr(0, 4)}}</p>
         </div>
-        <div class="col col-33">
+        <div class="col text-right">
           <button class="button button-outline button-dark" ng-click="viewEpisodes(tvShow)">Episodes</button>
         </div>
       </div>

@@ -1,8 +1,4 @@
 <ion-view>
-  <ion-header-bar align-title="center" class="bar-stable">
-    <button class="button button-icon icon icon-left ion-chevron-left button-clear button-dark" ng-click="goBack()">Back</button>
-    <h1 class="title">{{movie.Title}}</h1>
-  </ion-header-bar>
   <ion-content ng-hide="hideContent">
     <div class="list card">
       <div class="item">
@@ -24,9 +20,9 @@
         <p>IMDB Rating: {{movie.imdbRating}}</p>
         <p>Rotten Tomatoes Rating: {{movie.tomatoRating}}</p>
       </div>
-      <div class="item row">
-        <button class="col col-offset-20 col-20 button icon-left ion-social-youtube button-clear button-balanced" ng-click="lauchYoutube(movie.Title, movie.Year)">Trailer</button>
-        <button class="col col-offset-20 col-20 button icon-left ion-android-playstore button-clear button-balanced" ng-click="launchGooglePlayStore(movie.Title, movie.Year)">Buy</button>
+      <div class="button-bar bar-positive">
+        <a class="button icon-center ion-social-youtube" ng-click="lauchYoutube(movie.Title, movie.Year)"> Trailer</a>
+        <a class="button icon-center ion-android-playstore" ng-click="launchGooglePlayStore(movie.Title, movie.Year)"> Buy</a>
       </div>
     </div>
   </ion-content>

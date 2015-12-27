@@ -1,13 +1,9 @@
 <ion-view>
-  <ion-header-bar align-title="center" class="bar-stable">
-    <button class="button button-icon icon icon-left ion-chevron-left button-clear button-dark" ng-click="goBack()">Back</button>
-    <h1 class="title">Movies</h1>
-  </ion-header-bar>
   <ion-content>
     <div class="list">
       <div class="item item-input-inset">
         <label class="item-input-wrapper">
-          <input ng-model="keyword" type="text" placeholder="Keyword">
+          <input ng-model="keyword" type="text" placeholder="Movie">
         </label>
         <button ng-click="search(keyword)" class="button button-small">Search</button>
       </div>

@@ -1,13 +1,9 @@
 <ion-view>
-  <ion-header-bar align-title="center" class="bar-stable">
-    <button class="button button-icon icon icon-left ion-chevron-left button-clear button-dark" ng-click="goBack()">Back</button>
-    <h1 class="title">Games</h1>
-  </ion-header-bar>
   <ion-content>
     <div class="list">
       <div class="item item-input-inset">
         <label class="item-input-wrapper">
-          <input ng-model="keyword" type="text" placeholder="Keyword">
+          <input ng-model="keyword" type="text" placeholder="Game">
         </label>
         <button ng-click="search(keyword)" class="button button-small">Search</button>
       </div>
@@ -22,8 +18,9 @@
     <ion-scroll ng-hide="games.errorInformation" direction="y">
       <div class="list">
         <a class="item item-thumbnail-left" href="#" ng-repeat="game in games" ng-click="viewDetails(game)">
-          <img ng-src="{{'http://edge.fra.hitbox.tv' + game.category_logo_large || 'img/no_image.png'}}">
-          <h2>{{game.category_name}}</h2>
+          <img ng-src="{{game.header_image || 'img/no_image.png'}}">
+          <h2>{{game.name}}</h2>
+          <p>{{game.release_date.date}}</p>
         </a>
       </div>
     </ion-scroll>

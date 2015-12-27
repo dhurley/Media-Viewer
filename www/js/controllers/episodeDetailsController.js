@@ -1,4 +1,4 @@
-var episodeDetailsController = function($scope, $ionicHistory, $state, sharedData) {
+var episodeDetailsController = function($scope, $ionicHistory, sharedData) {
   $scope.episode = sharedData.getCurrentData();
 
   $scope.goBack = function(){

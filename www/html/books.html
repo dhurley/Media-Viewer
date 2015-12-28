@@ -1,12 +1,10 @@
 <ion-view>
   <ion-content>
-    <div class="list">
-      <div class="item item-input-inset">
-        <label class="item-input-wrapper">
-          <input ng-model="keyword" type="text" placeholder="Book">
-        </label>
-        <button ng-click="search(keyword, musicType)" class="button button-small button-dark">Search</button>
-      </div>
+    <div class="item-input-inset">
+      <label class="item-input-wrapper">
+        <input ng-model="keyword" type="text" placeholder="Book">
+      </label>
+      <button ng-click="search(keyword, musicType)" class="button button-small button-positive">Search</button>
     </div>
 
     <div ng-show="books.errorInformation" class="list card">

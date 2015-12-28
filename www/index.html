@@ -27,6 +27,7 @@
     <script src="js/services/tvMazeApi.js"></script>
     <script src="js/services/steamApi.js"></script>
     <script src="js/services/spotifyApi.js"></script>
+    <script src="js/services/googleBooksApi.js"></script>
     <script src="js/controllers/moviesController.js"></script>
     <script src="js/controllers/movieDetailsController.js"></script>
     <script src="js/controllers/tvShowsController.js"></script>
@@ -36,6 +37,7 @@
     <script src="js/controllers/gamesController.js"></script>
     <script src="js/controllers/gameDetailsController.js"></script>
     <script src="js/controllers/musicController.js"></script>
+    <script src="js/controllers/booksController.js"></script>
   </head>
   <body ng-app="starter">
     <ion-pane>
@@ -54,6 +56,9 @@
         </ion-tab>
         <ion-tab icon="ion-music-note" ui-sref="music">
           <ion-nav-view name="tab-music"></ion-nav-view>
+        </ion-tab>
+        <ion-tab icon="ion-ios-book-outline" ui-sref="books">
+          <ion-nav-view name="tab-books"></ion-nav-view>
         </ion-tab>
       </ion-tabs>
     </ion-pane>

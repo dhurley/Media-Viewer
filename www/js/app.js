@@ -104,6 +104,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
         controller: 'musicController'
       }
     }
+  })
+  .state('books', {
+    url: '/books',
+    views: {
+      'tab-books': {
+        templateUrl: 'html/books.html',
+        controller: 'booksController'
+      }
+    }
   });
 
   $urlRouterProvider.otherwise('/movies');

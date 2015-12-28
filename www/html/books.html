@@ -9,13 +9,13 @@
       </div>
     </div>
 
-    <div ng-show="data.errorInformation" class="list card">
+    <div ng-show="books.errorInformation" class="list card">
       <div class="item text-center">
         <h2>{{books.errorInformation}}</h2>
       </div>
     </div>
 
-    <ion-scroll ng-hide="data.errorInformation" direction="y">
+    <ion-scroll ng-hide="books.errorInformation" direction="y">
       <div class="list">
         <div class="list card" ng-repeat="book in books">
           <div class="item item-thumbnail-left">
@@ -25,7 +25,7 @@
             <p><span ng-repeat="author in book.volumeInfo.authors">{{author}} </span></p>
           </div>
           <div class="button-bar bar-positive">
-            <a class="button icon-center ion-android-playstore" ng-click="launchGoogleBooks(book.volumeInfo.canonicalVolumeLink)"> Google Books</a>
+            <a class="button icon-center ion-android-open" ng-click="launchGoogleBooks(book.volumeInfo.canonicalVolumeLink)"> Google Books</a>
           </div>
         </div>
       </div>

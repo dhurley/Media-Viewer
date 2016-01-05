@@ -13,5 +13,5 @@ Lanuagues used:
 Setup:
 * Download and install Node.js from the following website: https://nodejs.org/en/
 * Run this command to install Ionic: npm install -g cordova ionic
-* Plug in your android device to your pc and insure usb debugging in enable.
+* Plug in your android device to your pc and insure usb debugging in enabled
 * Run this command to install the app: ionic build android
